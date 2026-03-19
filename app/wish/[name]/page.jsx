@@ -199,7 +199,7 @@ export default function WishPage() {
             >
               {/* Button — confetti + GPay open */}
               <motion.a
-                href="upi://pay?pa=chivilkarkhulood-1@okicici&pn=Khulood%20Chivilkar&cu=INR"
+                href="https://rzp.io/rzp/IZI64a6n"
                 target="_blank"
                 onClick={handleEidiClick}
                 whileHover={{ scale: 1.08, y: -4 }}
