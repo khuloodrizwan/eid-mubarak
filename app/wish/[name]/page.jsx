@@ -183,7 +183,7 @@ export default function WishPage() {
           }} />
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.85)', margin: '0 0 8px', lineHeight: 1.6 }}>
             Shaitaan apko <strong style={{ color: '#f0c060' }}>EIDI</strong> dene se rokhenga —
-            bilkul mat sunna, dil khol ke eidi dena! 😅
+            lkn apne shaitaan ke behkawe mai bilkul nahi aana aur dil khol ke eidi dena hai ! 😅
           </p>
          
         </motion.div>
