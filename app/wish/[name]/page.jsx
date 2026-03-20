@@ -11,7 +11,7 @@ export default function WishPage() {
   const [stars, setStars] = useState([])
 
   useEffect(() => {
-    setStars([...Array(80)].map((_, i) => ({
+    setStars([...Array(50)].map((_, i) => ({
       id: i,
       size: Math.random() * 2 + 1,
       top: Math.random() * 100,
@@ -50,11 +50,17 @@ export default function WishPage() {
   return (
     <main style={{
       minHeight: '100vh',
+      maxHeight: '100dvh',
       background: 'radial-gradient(ellipse at top, #1a0533 0%, #0d0d2b 40%, #000000 100%)',
       fontFamily: "'Poppins', sans-serif",
       overflowX: 'hidden',
+      overflowY: 'hidden',
       position: 'relative',
-      padding: '40px 20px',
+      padding: '16px 20px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxSizing: 'border-box',
     }}>
 
       {/* STARS */}
@@ -76,8 +82,8 @@ export default function WishPage() {
       {/* BIG PURPLE GLOW */}
       <div style={{
         position: 'fixed',
-        width: '800px',
-        height: '800px',
+        width: '600px',
+        height: '600px',
         background: 'radial-gradient(circle, rgba(147,51,234,0.12) 0%, transparent 70%)',
         borderRadius: '50%',
         top: '50%',
@@ -93,24 +99,26 @@ export default function WishPage() {
         justifyContent: 'center',
         position: 'relative',
         zIndex: 10,
+        width: '100%',
+        gap: '10px',
       }}>
 
         {/* FLOATING MOON */}
         <motion.div
-          animate={{ y: [-15, 15, -15], rotate: [-5, 5, -5] }}
+          animate={{ y: [-8, 8, -8], rotate: [-5, 5, -5] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ fontSize: '100px', marginBottom: '16px', lineHeight: 1 }}
+          style={{ fontSize: '56px', lineHeight: 1 }}
         >
           🌙
         </motion.div>
 
         {/* EID MUBARAK */}
         <motion.h1
-          initial={{ opacity: 0, y: 40, scale: 0.8 }}
+          initial={{ opacity: 0, y: 30, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            fontSize: 'clamp(48px, 10vw, 80px)',
+            fontSize: 'clamp(38px, 10vw, 64px)',
             fontFamily: "'Cinzel', serif",
             fontWeight: 900,
             background: 'linear-gradient(135deg, #f0c060 0%, #ff9de2 40%, #a78bfa 70%, #f0c060 100%)',
@@ -119,10 +127,10 @@ export default function WishPage() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             animation: 'gradientText 4s ease infinite',
-            marginBottom: '8px',
+            margin: 0,
             textAlign: 'center',
             letterSpacing: '3px',
-            lineHeight: 1.2,
+            lineHeight: 1.1,
           }}
         >
           Eid Mubarak
@@ -130,15 +138,15 @@ export default function WishPage() {
 
         {/* NAME */}
         <motion.h2
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
           style={{
-            fontSize: 'clamp(28px, 6vw, 48px)',
+            fontSize: 'clamp(22px, 6vw, 36px)',
             fontFamily: "'Cinzel', serif",
             fontWeight: 700,
             color: 'white',
-            marginBottom: '40px',
+            margin: 0,
             textAlign: 'center',
             textShadow: '0 0 30px rgba(255,255,255,0.3)',
             letterSpacing: '2px',
@@ -147,21 +155,20 @@ export default function WishPage() {
           {decodedName}! 🎉
         </motion.h2>
 
-        {/* MESSAGE CARD */}
+        {/* MESSAGE CARD — compact */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
           style={{
             background: 'rgba(255,255,255,0.04)',
             backdropFilter: 'blur(30px)',
             border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '28px',
-            padding: '32px 40px',
-            maxWidth: '480px',
+            borderRadius: '20px',
+            padding: '16px 24px',
+            maxWidth: '420px',
             width: '100%',
             textAlign: 'center',
-            marginBottom: '32px',
             boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
             position: 'relative',
             overflow: 'hidden',
@@ -174,60 +181,102 @@ export default function WishPage() {
             width: '60%', height: '1px',
             background: 'linear-gradient(90deg, transparent, #f0c060, transparent)',
           }} />
-          <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.9)', marginBottom: '12px', lineHeight: 1.6 }}>
-            🍛 May your biryani be <strong style={{ color: '#f0c060' }}>unlimited</strong>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.85)', margin: '0 0 8px', lineHeight: 1.6 }}>
+            Shaitaan apko <strong style={{ color: '#f0c060' }}>EIDI</strong> dene se rokhenga —
+            bilkul mat sunna, dil khol ke eidi dena! 😅
           </p>
-          <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.9)', marginBottom: '20px', lineHeight: 1.6 }}>
-            💰 and your Eidi be <strong style={{ color: '#f0c060' }}>maximum!</strong>
-          </p>
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '16px' }}>
-            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', fontStyle: 'italic' }}>
-              If this made you smile, you owe me an Eid wish 😌
-            </p>
-          </div>
+         
         </motion.div>
 
-        {/* EIDI BUTTON */}
+        {/* EIDI BUTTON — JUMPING */}
         <AnimatePresence>
           {!showQR && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ delay: 1.3 }}
-              style={{ textAlign: 'center', marginBottom: '16px' }}
+              transition={{ delay: 1.2 }}
+              style={{ textAlign: 'center', width: '100%' }}
             >
-              {/* Button — confetti + GPay open */}
-              <motion.a
-                href="http://razorpay.me/@khuloodrizwanchivilkar"
-                target="_blank"
-                onClick={handleEidiClick}
-                whileHover={{ scale: 1.08, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  display: 'inline-block',
-                  padding: '20px 48px',
-                  borderRadius: '20px',
-                  background: 'linear-gradient(135deg, #f0c060, #f59e0b)',
-                  color: '#0a0a1a',
-                  fontSize: '20px',
-                  fontWeight: 800,
-                  fontFamily: "'Poppins', sans-serif",
-                  cursor: 'pointer',
-                  boxShadow: '0 0 40px rgba(240,192,96,0.5), 0 0 80px rgba(240,192,96,0.25)',
-                  animation: 'glowPulse 2s ease-in-out infinite',
-                  letterSpacing: '0.5px',
-                  textDecoration: 'none',
-                }}
-              >
-                Send me Eidi 💰😏
-              </motion.a>
+              {/* Attention ring pulse behind button */}
+              <div style={{ position: 'relative', display: 'inline-block' }}>
+                <div style={{
+                  position: 'absolute',
+                  inset: '-8px',
+                  borderRadius: '24px',
+                  background: 'rgba(240,192,96,0.2)',
+                  animation: 'ringPulse 1.5s ease-in-out infinite',
+                  zIndex: 0,
+                }} />
+                <div style={{
+                  position: 'absolute',
+                  inset: '-16px',
+                  borderRadius: '28px',
+                  background: 'rgba(240,192,96,0.08)',
+                  animation: 'ringPulse 1.5s ease-in-out 0.3s infinite',
+                  zIndex: 0,
+                }} />
+
+                <motion.a
+                  href="http://razorpay.me/@khuloodrizwanchivilkar"
+                  target="_blank"
+                  onClick={handleEidiClick}
+                  animate={{
+                    y: [0, -14, 0, -8, 0],
+                    scale: [1, 1.04, 1, 1.02, 1],
+                  }}
+                  transition={{
+                    duration: 1.4,
+                    repeat: Infinity,
+                    repeatDelay: 1.2,
+                    ease: [0.36, 0.07, 0.19, 0.97],
+                  }}
+                  whileHover={{ scale: 1.1, y: -6 }}
+                  whileTap={{ scale: 0.93 }}
+                  style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 32px',
+                    borderRadius: '16px',
+                    background: 'linear-gradient(135deg, #f0c060, #f59e0b)',
+                    color: '#0a0a1a',
+                    fontSize: '17px',
+                    fontWeight: 800,
+                    fontFamily: "'Poppins', sans-serif",
+                    cursor: 'pointer',
+                    boxShadow: '0 0 40px rgba(240,192,96,0.6), 0 0 80px rgba(240,192,96,0.3), 0 8px 24px rgba(0,0,0,0.4)',
+                    letterSpacing: '0.5px',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {/* Animated coin emoji */}
+                  <motion.span
+                    animate={{ rotate: [0, 20, -20, 0], scale: [1, 1.2, 1] }}
+                    transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 1.8 }}
+                    style={{ fontSize: '19px' }}
+                  >
+                    💰
+                  </motion.span>
+                  Send me Eidi
+                  <motion.span
+                    animate={{ rotate: [0, -20, 20, 0], scale: [1, 1.2, 1] }}
+                    transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 1.8, delay: 0.1 }}
+                    style={{ fontSize: '19px' }}
+                  >
+                    😏
+                  </motion.span>
+                </motion.a>
+              </div>
 
               <p style={{
-                marginTop: '12px',
-                fontSize: '13px',
+                marginTop: '10px',
+                fontSize: '12px',
                 color: 'rgba(255,255,255,0.3)',
-                letterSpacing: '1px',
+                letterSpacing: '0.5px',
               }}>
                 Or just send Eid wishes — those are free! 😅
               </p>
@@ -235,11 +284,11 @@ export default function WishPage() {
           )}
         </AnimatePresence>
 
-        {/* QR SECTION — button click ke baad */}
+        {/* QR SECTION */}
         <AnimatePresence>
           {showQR && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 40 }}
+              initial={{ opacity: 0, scale: 0.8, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ textAlign: 'center' }}
@@ -248,19 +297,18 @@ export default function WishPage() {
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 style={{
-                  fontSize: '18px',
+                  fontSize: '16px',
                   color: 'rgba(255,255,255,0.8)',
-                  marginBottom: '24px',
+                  marginBottom: '16px',
                 }}
               >
                 COME ON EIDI IS MUST! 😄
               </motion.p>
 
-              {/* QR with rainbow glow border */}
               <div style={{
                 display: 'inline-block',
                 padding: '3px',
-                borderRadius: '24px',
+                borderRadius: '20px',
                 background: 'linear-gradient(135deg, #f0c060, #9333ea, #ec4899, #f0c060)',
                 backgroundSize: '300% auto',
                 animation: 'shimmer 3s linear infinite',
@@ -268,17 +316,17 @@ export default function WishPage() {
               }}>
                 <div style={{
                   background: 'white',
-                  borderRadius: '22px',
-                  padding: '16px',
+                  borderRadius: '18px',
+                  padding: '12px',
                 }}>
                   <img
                     src="/qr-code.jpeg"
                     alt="QR Code"
                     style={{
-                      width: '200px',
-                      height: '200px',
+                      width: '160px',
+                      height: '160px',
                       objectFit: 'contain',
-                      borderRadius: '12px',
+                      borderRadius: '10px',
                       display: 'block',
                     }}
                   />
@@ -286,8 +334,8 @@ export default function WishPage() {
               </div>
 
               <p style={{
-                marginTop: '16px',
-                fontSize: '13px',
+                marginTop: '12px',
+                fontSize: '12px',
                 color: 'rgba(255,255,255,0.3)',
                 fontStyle: 'italic',
               }}>
@@ -311,18 +359,16 @@ export default function WishPage() {
           50% { background-position: 100% center; }
           100% { background-position: 0% center; }
         }
-        @keyframes glowPulse {
-          0%, 100% { box-shadow: 0 0 40px rgba(240,192,96,0.5), 0 0 80px rgba(240,192,96,0.25); }
-          50% { box-shadow: 0 0 60px rgba(240,192,96,0.8), 0 0 120px rgba(240,192,96,0.4); }
-        }
         @keyframes shimmer {
           0% { background-position: 0% center; }
           100% { background-position: 300% center; }
+        }
+        @keyframes ringPulse {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 0; transform: scale(1.15); }
         }
       `}</style>
 
     </main>
   )
 }
-
-//https://rzp.io/rzp/xfyQddJ
